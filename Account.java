@@ -1,76 +1,32 @@
-package assigment_no2;
+package IciciBank;
 
 public class Account {
 
-		protected int accountNumber;
-		protected double balance;
+	protected String accNo;
+	protected double balance, balance2,balance3,amt1;
 
-		public Account(int accountNumber) {
-			this.accountNumber = accountNumber;
-			this.balance = 0.0;
-		}
-
-		public void deposit(double amount) {
-			balance += amount;
-			System.out.println("Deposited " + amount + " into Account " + accountNumber);
-		}
-
-		public void withdraw(double amount) {
-			if (balance >= amount) {
-				balance -= amount;
-				System.out.println("Withdrawn " + amount + " from Account " + accountNumber);
-			} else {
-				System.out.println("Insufficient balance");
-			}
-		}
-
-		public void printAccountDetails() {
-			System.out.println("Account Number: " + accountNumber);
-			System.out.println("Balance: " + balance);
-		}
+	public Account(String accNo, double balance) {
+		this.accNo = accNo;
+		this.balance = balance;
 	}
 
-
-	class SavingsAccount extends Account {
-		private double interestRate;
-
-		public SavingsAccount(int accountNumber, double interestRate) {
-			super(accountNumber);
-			this.interestRate = interestRate;
-		}
-
-		public void addInterest() {
-			balance += balance * interestRate;
-			System.out.println("Interest added to Account " + accountNumber);
-		}
+	public void printAcctDetails() {
+		System.out.println("account Number : " + accNo + "\nCurrent Balance : " + balance);
 	}
 
-	class LoanAccount extends Account {
-		private double interestRate;
-
-		public LoanAccount(int accountNumber, double interestRate) {
-			super(accountNumber);
-			this.interestRate = interestRate;
-		}
-
-		public void addInterest() {
-			balance += balance * interestRate;
-			System.out.println("Interest added to Loan Account " + accountNumber);
-		}
+	public void deposit(double amt) {
+		balance2 = balance + amt;
+		System.out.println(balance + " + " + amt + " = " + balance2);
+		System.out.println("Deposited balance : " + balance2);
 	}
 
-	class HousingLoan extends LoanAccount {
-		private int loanTerm;
-
-		public HousingLoan(int accountNumber, double interestRate, int loanTerm) {
-			super(accountNumber, interestRate);
-			this.loanTerm = loanTerm;
-		}
-
-		public void printLoanTerms() {
-			System.out.println("Loan Account Number: " + accountNumber);
-			System.out.println("Loan Term: " + loanTerm + " years");
-		}
+	public void withdraw(double amt1) {
+		if (balance > amt1) {
+			balance3 = balance2 - amt1;
+			System.out.println(balance2 + " - " + amt1 + " = " +balance3);
+			System.out.println("Withdrawal balance : " + balance3);
+		} else
+			System.out.println("Insufficient Balance.");
 	}
 
-	
+}
